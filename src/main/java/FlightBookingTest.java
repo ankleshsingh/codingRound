@@ -12,13 +12,13 @@ import java.util.List;
 
 public class FlightBookingTest {
 
-    WebDriver driver = new ChromeDriver();
+    WebDriver driver = null;
 
 
     @Test
     public void testThatResultsAppearForAOneWayJourney() {
 
-        setDriverPath();
+        setDriver();
         driver.get("https://www.cleartrip.com/");
         waitFor(2000);
         driver.findElement(By.id("OneWay")).click();
@@ -75,7 +75,7 @@ public class FlightBookingTest {
         }
     }
 
-    private void setDriverPath() {
+    private void setDriver() {
         if (PlatformUtil.isMac()) {
             System.setProperty("webdriver.chrome.driver", "chromedriver");
         }
@@ -85,5 +85,6 @@ public class FlightBookingTest {
         if (PlatformUtil.isLinux()) {
             System.setProperty("webdriver.chrome.driver", "chromedriver_linux");
         }
+        driver = new ChromeDriver();
     }
 }
