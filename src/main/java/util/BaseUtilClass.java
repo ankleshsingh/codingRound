@@ -2,14 +2,18 @@ package util;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
 import com.sun.javafx.PlatformUtil;
 
 public class BaseUtilClass {
 	public WebDriver driver = null;
-	@BeforeTest
+	@BeforeClass
 	public void setup() {
 		if (PlatformUtil.isMac()) {
 			System.setProperty("webdriver.chrome.driver", "chromedriver");
@@ -23,7 +27,7 @@ public class BaseUtilClass {
 		driver = new ChromeDriver();
 	}
 	
-	@AfterTest
+	@AfterClass
 	public void tearDown() {
 		driver.quit();
 	}

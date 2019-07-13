@@ -31,13 +31,13 @@ public class PageClearTrip {
 	@FindBy(id = "FromTag")
 	public WebElement FromTag;
 	
-	@FindBy(xpath = ".//ui-id-1//li")
+	@FindBy(xpath = ".//ul[@id='ui-id-1']//li")
 	public List<WebElement> originOptions;
 
 	@FindBy(id = "ToTag")
 	public WebElement ToTag;
 	
-	@FindBy(xpath = ".//ui-id-2//li")
+	@FindBy(xpath = ".//ul[@id='ui-id-2']//li")
 	public List<WebElement> destinationOptions;
 
 	@FindBy(xpath = "//*[@id='ui-datepicker-div']/div[1]/table/tbody/tr[3]/td[7]/a")
@@ -45,7 +45,22 @@ public class PageClearTrip {
 
 	@FindBy(id = "SearchBtn")
 	public WebElement SearchBtn;
+	//=======Sign In===========
+	@FindBy(linkText = "Your trips")
+	public WebElement Yourtrips;
+	
+	@FindBy(id = "SignIn")
+	public WebElement SignIn;
 
+	@FindBy(tagName = "iframe")
+	public List<WebElement> iframe;
+	
+	@FindBy(id = "signInButton")
+	public WebElement signInButton;
+	
+	@FindBy(id = "errors1")
+	public WebElement errors1;
+    		
 	public PageClearTrip(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);

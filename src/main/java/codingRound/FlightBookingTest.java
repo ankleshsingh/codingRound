@@ -24,14 +24,14 @@ public class FlightBookingTest extends BaseUtilClass{
         pgClearTrip.FromTag.click();
         pgClearTrip.FromTag.sendKeys(Keys.ARROW_DOWN);
         //wait for the auto complete options to appear for the origin
-        waitFor(5000);
+        waitFor(10000);
         pgClearTrip.originOptions.get(0).click();
         pgClearTrip.ToTag.clear();
         pgClearTrip.ToTag.sendKeys("Delhi");
         pgClearTrip.ToTag.click();
         pgClearTrip.ToTag.sendKeys(Keys.ARROW_DOWN);
         //wait for the auto complete options to appear for the origin
-        waitFor(5000);
+        waitFor(10000);
         //select the first item from the destination auto complete list
         pgClearTrip.destinationOptions.get(0).click();
 
