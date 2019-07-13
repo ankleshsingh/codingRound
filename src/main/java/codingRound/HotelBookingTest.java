@@ -10,13 +10,11 @@ public class HotelBookingTest extends BaseUtilClass {
 	@Test
 	public void shouldBeAbleToSearchForHotels() {
 		PageClearTrip pgClearTrip=new PageClearTrip(driver);
-		driver.get("https://www.cleartrip.com/");
-		pgClearTrip.hotelLink.click();
-
-		pgClearTrip.localityTextBox.sendKeys("Indiranagar, Bangalore");
-
+		navigateTo("https://www.cleartrip.com/");
+		clickOn(pgClearTrip.hotelLink);
+		setText(pgClearTrip.localityTextBox,"Indiranagar, Bangalore");
 		new Select(pgClearTrip.travellerSelection).selectByVisibleText("1 room, 2 adults");
-		pgClearTrip.searchButton.click();
+		clickOn(pgClearTrip.searchButton);
 
 	}
 }
