@@ -1,18 +1,19 @@
-import com.sun.javafx.PlatformUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.sun.javafx.PlatformUtil;
+
 public class SignInTest {
 
-    WebDriver driver = new ChromeDriver();
+    WebDriver driver = null;
 
     @Test
     public void shouldThrowAnErrorIfSignInDetailsAreMissing() {
 
-        setDriverPath();
+    	setDriver();
 
         driver.get("https://www.cleartrip.com/");
         waitFor(2000);
@@ -35,7 +36,7 @@ public class SignInTest {
         }
     }
 
-    private void setDriverPath() {
+    private void setDriver() {
         if (PlatformUtil.isMac()) {
             System.setProperty("webdriver.chrome.driver", "chromedriver");
         }
@@ -45,6 +46,7 @@ public class SignInTest {
         if (PlatformUtil.isLinux()) {
             System.setProperty("webdriver.chrome.driver", "chromedriver_linux");
         }
+        driver = new ChromeDriver();
     }
 
 
