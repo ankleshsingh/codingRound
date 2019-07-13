@@ -2,8 +2,6 @@ package pageObjects;
 
 import java.util.List;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,40 +24,40 @@ public class PageClearTrip {
 
 	// =======Flight Booking===========
 	@FindBy(id = "OneWay")
-	public WebElement OneWay;
+	public WebElement OneWayRadio;
 
 	@FindBy(id = "FromTag")
-	public WebElement FromTag;
+	public WebElement FromTagTextBox;
 	
 	@FindBy(xpath = ".//ul[@id='ui-id-1']//li")
-	public List<WebElement> originOptions;
+	public List<WebElement> originOptionsList;
 
 	@FindBy(id = "ToTag")
-	public WebElement ToTag;
+	public WebElement ToTagTextBox;
 	
 	@FindBy(xpath = ".//ul[@id='ui-id-2']//li")
-	public List<WebElement> destinationOptions;
+	public List<WebElement> destinationOptionsList;
 
 	@FindBy(xpath = "//*[@id='ui-datepicker-div']/div[1]/table/tbody/tr[3]/td[7]/a")
-	public WebElement dtPicker;
+	public WebElement dtPickerLink;
 
 	@FindBy(id = "SearchBtn")
-	public WebElement SearchBtn;
+	public WebElement SearchButton;
 	//=======Sign In===========
 	@FindBy(linkText = "Your trips")
-	public WebElement Yourtrips;
+	public WebElement YourtripsLink;
 	
 	@FindBy(id = "SignIn")
-	public WebElement SignIn;
+	public WebElement SignInButton;
 
 	@FindBy(tagName = "iframe")
-	public List<WebElement> iframe;
+	public List<WebElement> iframeFrame;
 	
 	@FindBy(id = "signInButton")
 	public WebElement signInButton;
 	
 	@FindBy(id = "errors1")
-	public WebElement errors1;
+	public WebElement errorsText;
     		
 	public PageClearTrip(WebDriver driver) {
 		this.driver = driver;

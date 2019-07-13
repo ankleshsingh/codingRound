@@ -7,13 +7,16 @@ import pageObjects.PageClearTrip;
 import util.BaseUtilClass;
 
 public class HotelBookingTest extends BaseUtilClass {
+	private static final String TRAVELLER = "1 room, 2 adults";
+	private static final String LOCALITY = "Indiranagar, Bangalore";
+	private static final String URL = "https://www.cleartrip.com/";
 	@Test
 	public void shouldBeAbleToSearchForHotels() {
 		PageClearTrip pgClearTrip=new PageClearTrip(driver);
-		navigateTo("https://www.cleartrip.com/");
+		navigateTo(URL);
 		clickOn(pgClearTrip.hotelLink);
-		setText(pgClearTrip.localityTextBox,"Indiranagar, Bangalore");
-		new Select(pgClearTrip.travellerSelection).selectByVisibleText("1 room, 2 adults");
+		setText(pgClearTrip.localityTextBox,LOCALITY);
+		new Select(pgClearTrip.travellerSelection).selectByVisibleText(TRAVELLER);
 		clickOn(pgClearTrip.searchButton);
 
 	}

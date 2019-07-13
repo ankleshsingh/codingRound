@@ -1,10 +1,6 @@
 package codingRound;
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,31 +8,31 @@ import pageObjects.PageClearTrip;
 import util.BaseUtilClass;
 
 public class FlightBookingTest extends BaseUtilClass{
+	private static final String TO = "Delhi";
+	private static final String FROM = "Bangalore";
+	private static final String URL = "https://www.cleartrip.com/";
     @Test
     public void testThatResultsAppearForAOneWayJourney() {
     	PageClearTrip pgClearTrip=new PageClearTrip(driver);
-    	navigateTo("https://www.cleartrip.com/");
+    	navigateTo(URL);
         waitFor(2000);
-        clickOn(pgClearTrip.OneWay);
-        clickOn(pgClearTrip.FromTag);
-        setText(pgClearTrip.FromTag,"Bangalore");
-        clickOn(pgClearTrip.FromTag);
-        pgClearTrip.FromTag.sendKeys(Keys.ARROW_DOWN);
+        clickOn(pgClearTrip.OneWayRadio);
+        setText(pgClearTrip.FromTagTextBox,FROM);
+        pgClearTrip.FromTagTextBox.sendKeys(Keys.ARROW_DOWN);
         //wait for the auto complete options to appear for the origin
         waitFor(10000);
-        clickOn(pgClearTrip.originOptions.get(0));
-        setText(pgClearTrip.ToTag,"Delhi");
-        clickOn(pgClearTrip.ToTag);
-        pgClearTrip.ToTag.sendKeys(Keys.ARROW_DOWN);
+        clickOn(pgClearTrip.originOptionsList.get(0));
+        setText(pgClearTrip.ToTagTextBox,TO);
+        pgClearTrip.ToTagTextBox.sendKeys(Keys.ARROW_DOWN);
         //wait for the auto complete options to appear for the origin
         waitFor(10000);
         //select the first item from the destination auto complete list
-        clickOn(pgClearTrip.destinationOptions.get(0));
+        clickOn(pgClearTrip.destinationOptionsList.get(0));
 
-        clickOn(pgClearTrip.dtPicker);
+        clickOn(pgClearTrip.dtPickerLink);
 
         //all fields filled in. Now click on search
-        clickOn(pgClearTrip.SearchBtn);
+        clickOn(pgClearTrip.SearchButton);
 
         waitFor(5000);
         //verify that result appears for the provided journey search
