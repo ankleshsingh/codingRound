@@ -3,9 +3,9 @@
 <suite name="codingRoundAnklesh">
 	<test name="codingRoundAnkleshSuite">
 		<classes>
-			<class name="SignInTest" />
-			<class name="HotelBookingTest" />
-			<class name="FlightBookingTest" />
+			<class name="codingRound.SignInTest" />
+			<class name="codingRound.HotelBookingTest" />
+			<class name="codingRound.FlightBookingTest" />
 		</classes>
 	</test>
 </suite>

@@ -1,3 +1,4 @@
+package codingRound;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -6,14 +7,14 @@ import org.testng.annotations.Test;
 
 import com.sun.javafx.PlatformUtil;
 
-public class SignInTest {
+import util.BaseUtilClass;
 
-    WebDriver driver = null;
+public class SignInTest extends BaseUtilClass {
+
+    //WebDriver driver = null;
 
     @Test
     public void shouldThrowAnErrorIfSignInDetailsAreMissing() {
-
-    	setDriver();
 
         driver.get("https://www.cleartrip.com/");
         waitFor(2000);
@@ -35,19 +36,4 @@ public class SignInTest {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
     }
-
-    private void setDriver() {
-        if (PlatformUtil.isMac()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver");
-        }
-        if (PlatformUtil.isWindows()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-        }
-        if (PlatformUtil.isLinux()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver_linux");
-        }
-        driver = new ChromeDriver();
-    }
-
-
 }
