@@ -2,6 +2,7 @@ package codingRound;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -15,22 +16,20 @@ public class FlightBookingTest extends BaseUtilClass{
         driver.get("https://www.cleartrip.com/");
         waitFor(2000);
         driver.findElement(By.id("OneWay")).click();
-
         driver.findElement(By.id("FromTag")).clear();
         driver.findElement(By.id("FromTag")).sendKeys("Bangalore");
-
+        driver.findElement(By.id("FromTag")).click();
+        driver.findElement(By.id("FromTag")).sendKeys(Keys.ARROW_DOWN);
         //wait for the auto complete options to appear for the origin
-
-        waitFor(2000);
+        waitFor(5000);
         List<WebElement> originOptions = driver.findElement(By.id("ui-id-1")).findElements(By.tagName("li"));
         originOptions.get(0).click();
-
-        driver.findElement(By.id("toTag")).clear();
-        driver.findElement(By.id("toTag")).sendKeys("Delhi");
-
-        //wait for the auto complete options to appear for the destination
-
-        waitFor(2000);
+        driver.findElement(By.id("ToTag")).clear();
+        driver.findElement(By.id("ToTag")).sendKeys("Delhi");
+        driver.findElement(By.id("ToTag")).click();
+        driver.findElement(By.id("ToTag")).sendKeys(Keys.ARROW_DOWN);
+        //wait for the auto complete options to appear for the origin
+        waitFor(5000);
         //select the first item from the destination auto complete list
         List<WebElement> destinationOptions = driver.findElement(By.id("ui-id-2")).findElements(By.tagName("li"));
         destinationOptions.get(0).click();
