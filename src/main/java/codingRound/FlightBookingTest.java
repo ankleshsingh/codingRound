@@ -44,8 +44,6 @@ public class FlightBookingTest extends BaseUtilClass{
         //verify that result appears for the provided journey search
         Assert.assertTrue(isElementPresent(By.className("searchSummary")));
 
-        //close the browser
-        driver.quit();
 
     }
 

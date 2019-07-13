@@ -21,12 +21,11 @@ public class SignInTest extends BaseUtilClass {
 
         driver.findElement(By.linkText("Your trips")).click();
         driver.findElement(By.id("SignIn")).click();
-
+        waitFor(5000);
+        driver.switchTo().frame(driver.findElements(By.tagName("iframe")).size()-1);
         driver.findElement(By.id("signInButton")).click();
-
         String errors1 = driver.findElement(By.id("errors1")).getText();
-        Assert.assertTrue(errors1.contains("There were errors in your submission"));
-        driver.quit();
+        Assert.assertTrue(errors1.contains("There were errors in your submission"));       
     }
 
     private void waitFor(int durationInMilliSeconds) {
